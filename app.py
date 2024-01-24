@@ -1,4 +1,3 @@
-
 import os
 import shutil
 from enum import Enum
@@ -663,24 +662,24 @@ DESCRIPTION = '''
 
 
 ARTICLE = r"""
-If Rerender-A-Video is helpful, please help to ? the <a href='https://github.com/williamyang1991/Rerender_A_Video' target='_blank'>Github Repo</a>. Thanks! 
+If Rerender-A-Video is helpful, please help to ⭐ the <a href='https://github.com/williamyang1991/Rerender_A_Video' target='_blank'>Github Repo</a>. Thanks! 
 [![GitHub Stars](https://img.shields.io/github/stars/williamyang1991/Rerender_A_Video?style=social)](https://github.com/williamyang1991/Rerender_A_Video)
 ---
-?? **Citation**
+📝 **Citation**
 If our work is useful for your research, please consider citing:
 ```bibtex
 @inproceedings{yang2023rerender,
-?title = {Rerender A Video: Zero-Shot Text-Guided Video-to-Video Translation},
-?author = {Yang, Shuai and Zhou, Yifan and Liu, Ziwei and and Loy, Chen Change},
+ title = {Rerender A Video: Zero-Shot Text-Guided Video-to-Video Translation},
+ author = {Yang, Shuai and Zhou, Yifan and Liu, Ziwei and and Loy, Chen Change},
   booktitle = {ACM SIGGRAPH Asia Conference Proceedings},
-?year = {2023},
+ year = {2023},
 }
 ```
-?? **License**
+📋 **License**
 This project is licensed under <a rel="license" href="https://github.com/williamyang1991/Rerender_A_Video/blob/main/LICENSE.md">S-Lab License 1.0</a>. 
 Redistribution and use for non-commercial purposes should follow this license.
 
-?? **Contact**
+📧 **Contact**
 If you have any questions, please feel free to reach me out at <b>williamyang@pku.edu.cn</b>.
 """
 
@@ -694,6 +693,7 @@ with block:
     with gr.Row():
         with gr.Column():
             input_path = gr.Video(label='Input Video',
+                                  source='upload',
                                   format='mp4',
                                   visible=True)
             prompt = gr.Textbox(label='Prompt')
@@ -992,5 +992,5 @@ with block:
 
     run_button3.click(fn=process3, outputs=[result_keyframe])
 
-block.queue(max_size=20)
+block.queue(concurrency_count=1, max_size=20)
 block.launch(server_name='0.0.0.0', share=True)
