@@ -693,7 +693,7 @@ with block:
     with gr.Row():
         with gr.Column():
             input_path = gr.Video(label='Input Video',
-                                  source='upload',
+                                  # source='upload',
                                   format='mp4',
                                   visible=True)
             prompt = gr.Textbox(label='Prompt')
@@ -992,5 +992,6 @@ with block:
 
     run_button3.click(fn=process3, outputs=[result_keyframe])
 
-block.queue(concurrency_count=1, max_size=20)
+# block.queue(concurrency_count=1, max_size=20)
+block.queue(max_size=20)
 block.launch(server_name='0.0.0.0', share=True)
